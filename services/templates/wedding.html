@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Wedding Services | Evento</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    body {
+        background: url("https://d397bfy4gvgcdm.cloudfront.net/429895-JCS54352.jpeg");
+        background-size: cover;
+        background-position: center;
+        font-family: "Segoe UI", sans-serif;
+        margin: 0;
+        color: #fff;
+    }
+
+    header {
+        background: rgba(0,0,0,0.7);
+        padding: 15px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    header .logo {
+        font-size: 26px;
+        font-weight: bold;
+        color: #f5c400;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        gap: 25px;
+    }
+
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+        color: #f5c400;
+    }
+
+    .section {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 100px 20px 50px;
+        background: rgba(0,0,0,0.6);
+        backdrop-filter: blur(6px);
+        text-align: center;
+    }
+
+    .section h1 {
+        color: #f5c400;
+        margin-bottom: 40px;
+        font-size: 36px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        justify-items: center;
+        margin-top: 20px;
+        width: 100%;
+        max-width: 1200px;
+    }
+
+    .service-box {
+        background: rgba(255,255,255,0.1);
+        padding: 20px;
+        border-radius: 12px;
+        min-width: 180px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        text-align: center;
+    }
+
+    .service-box img {
+        width: 100%;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 12px;
+    }
+
+    .service-box:hover {
+        transform: scale(1.05);
+        background: #f5c400;
+        color: #000;
+        box-shadow: 0 12px 25px rgba(0,0,0,0.6);
+    }
+
+    button.back-btn {
+        margin-top: 50px;
+        padding: 12px 28px;
+        background: #f5c400;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 16px;
+        transition: 0.3s;
+    }
+
+    button.back-btn:hover {
+        transform: scale(1.05);
+    }
+
+    @media(max-width:1000px){
+        .services-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media(max-width:600px){
+        .services-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo">Evento</div>
+    <nav>
+        <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#community">Community</a></li>
+            <li><a href="login.html" id="loginLink">Login</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="section">
+    <h1>Wedding Services</h1>
+    <div class="services-grid">
+        <div class="service-box" onclick="window.location.href='/venue/'">
+            <img src="https://media.weddingz.in/images/1652174c3dff09f27058be0f877136dd/10-best-outdoor-wedding-venues-in-bangalore-to-get-married-al-fresco-style-5.jpg" alt="Venue">
+            Venue
+        </div>
+
+        <div class="service-box">
+            <img src="https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw5MTMyMXwwfDF8c2VufDl8fG11c2ljfHx8fHx8MTY4OTAwNjA0OA&ixlib=rb-4.0.3&q=80&w=400" alt="Music">
+            Music
+        </div>
+
+        <div class="service-box">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5XUOlFc-3P_ugA6EGN25CnxFDILJYXCyRfA&s" alt="Catering">
+            Catering
+        </div>
+
+        <div class="service-box">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2Fm_6nBs5hfWFCy2NUk4GsdO2XLNywgoKQQ&s" alt="Decor">
+            Decor
+        </div>
+
+        <div class="service-box">
+            <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw5MTMyMXwwfDF8c2VufDF8fGJlYXV0aWNpYW58fHx8fHwxNjg5MDA2MTYy&ixlib=rb-4.0.3&q=80&w=400" alt="Beautician">
+            Beautician
+        </div>
+
+        <div class="service-box">
+            <img src="https://img.freepik.com/free-vector/ornamental-blue-with-gold-embroidery-invitation-card_1284-3717.jpg?semt=ais_hybrid&w=740&q=80" alt="Invitation">
+            Invitation
+        </div>
+    </div>
+        
+
+    <button class="back-btn" onclick="window.location.href='{% url 'index' %}'">
+        ← Back to Services
+    </button>
+
+</section>
+
+
+
+<script>
+    // LOGIN / LOGOUT NAVBAR LOGIC
+    document.addEventListener('DOMContentLoaded', () => {
+        const loginLink = document.getElementById('loginLink');
+        const username = localStorage.getItem('username');
+
+        if (username) {
+            loginLink.textContent = `Logout`;
+            loginLink.href = '#';
+            loginLink.onclick = () => {
+                localStorage.removeItem('username');
+                localStorage.removeItem('role');
+                loginLink.textContent = 'Login';
+                loginLink.href = 'login.html';
+                alert('You have been logged out!');
+                return false;
+            };
+        }
+    });
+    
+
+</script>
+
+</body>
+</html>

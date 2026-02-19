@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login | Evento</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: "Segoe UI", sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url("https://d397bfy4gvgcdm.cloudfront.net/429895-JCS54352.jpeg");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .login-container {
+            background: rgba(0,0,0,0.7);
+            padding: 30px 40px;
+            border-radius: 14px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+            text-align: center;
+            width: 350px;
+            color: #fff;
+        }
+
+        h2 { color: #f5c400; margin-bottom: 20px; }
+
+        .role-selection button {
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            background: #f5c400;
+            color: #000;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .role-selection button:hover { transform: scale(1.05); }
+
+        .login-form { display: none; margin-top: 20px; text-align: left; }
+        .login-form label { display: block; margin-top: 10px; font-weight: bold; color: #f5c400; }
+        .login-form input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+
+        .login-form button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            border: none;
+            background: #f5c400;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .login-form button:hover { transform: scale(1.05); }
+
+        .error { color: #ff6b6b; font-size: 14px; margin-top: 5px; }
+        ::placeholder { color: #ddd; }
+        .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #f5c400;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.close-btn:hover {
+    color: #ff6b6b;
+}
+.login-container {
+    position: relative; /* needed for absolute positioning of close button */
+}
+
+    </style>
+</head>
+<body>
+    
+
+<div class="login-container">
+    <span class="close-btn" onclick="window.location.href='{% url 'index' %}'">&times;</span>
+
+    <h2>Login</h2>
+    <div class="role-selection">
+        <button onclick="selectRole('vendor')">Vendor</button>
+        <button onclick="selectRole('customer')">Customer</button>
+    </div>
+
+    <form class="login-form" id="loginForm" onsubmit="return validateForm()">
+        <label id="roleLabel">Username</label>
+        <input type="text" id="username" placeholder="Enter your name" required>
+
+        <label>Password</label>
+        <input type="password" id="password" placeholder="Enter password" required>
+        <div class="error" id="passwordError"></div>
+
+        <button type="submit">Login</button>
+    </form>
+</div>
+<script>
+    let selectedRole = '';
+
+    function selectRole(role) {
+        selectedRole = role;
+        document.querySelector('.role-selection').style.display = 'none';
+        document.getElementById('loginForm').style.display = 'block';
+        document.getElementById('roleLabel').textContent =
+            role === 'vendor' ? 'Vendor Name' : 'Customer Name';
+    }
+
+    function validateForm() {
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value;
+        const errorDiv = document.getElementById('passwordError');
+
+        const pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{6,}$/;
+        if (!pattern.test(password)) {
+            errorDiv.textContent =
+                "Password must include uppercase, lowercase, number, and symbol (min 6 chars)";
+            return false;
+        }
+
+        // Save login state
+        localStorage.setItem('username', username);
+        localStorage.setItem('role', selectedRole);
+
+        // ✅ CORRECT DJANGO REDIRECT
+        window.location.href = '/#services';
+        return false;
+    }
+
+    function closeLogin() {
+        localStorage.removeItem('username');
+        localStorage.removeItem('role');
+        window.location.href = '/';
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+    if (window.location.hash === "#services") {
+        showSection("services");
+    }
+});
+</script>
+
+
+</body>
+</html>
